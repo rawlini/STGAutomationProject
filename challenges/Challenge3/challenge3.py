@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-class challenge1(unittest.TestCase):
+class challenge3(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome("chromedriver")
