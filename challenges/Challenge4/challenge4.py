@@ -9,7 +9,7 @@ d.tearDown(d)
 class challenge4(unittest.TestCase):
 
     def test_challenge4(self):
-        i.intToString(i,f.fibonnaciSequence(f,17))
+       i.intToString(i,f.fibonnaciSequence(f,50))
 
 if __name__ == '__main__':
     unittest.main()

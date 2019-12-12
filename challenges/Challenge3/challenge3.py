@@ -17,7 +17,7 @@ class challenge3(unittest.TestCase):
         divCounter=1
         listCounter=1
         while (divCounter != divCount or listCounter <= listCount):
-            print(self.driver.find_element(By.XPATH, "//*[@id='tabTrending']/div[1]/div[2]/div["+str(divCounter)+"]//li["+ str(listCounter) +"]/a").text + ' -' + self.driver.find_element(By.XPATH, "//*[@id='tabTrending']/div[1]/div[2]/div["+str(divCounter)+"]//li["+ str(listCounter) +"]/a").get_attribute('href'))
+            print(self.driver.find_element(By.XPATH, "//*[@id='tabTrending']/div[1]/div[2]/div["+str(divCounter)+"]//li["+ str(listCounter) +"]/a").text + ' - ' + self.driver.find_element(By.XPATH, "//*[@id='tabTrending']/div[1]/div[2]/div["+str(divCounter)+"]//li["+ str(listCounter) +"]/a").get_attribute('href'))
             if (divCounter == divCount and listCounter == listCount):
                 break
             if listCounter == listCount:
