@@ -6,3 +6,5 @@ def Fibonnaci(Number):
         a,b= b+a,a
         i=i+1
     return b
+
+print(Fibonnaci(60))

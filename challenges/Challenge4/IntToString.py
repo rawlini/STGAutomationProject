@@ -30,7 +30,7 @@ class IntToString:
             while countdown < arrayLength :
                 if ((arrayLength-countdown)%3==0) :
                     countdownArray.append(self.hundreds[intArray[countdown]])
-                if ((arrayLength-countdown)%3!=0 and intArray[countdown]==1 and self.bigDigits[(arrayLength-countdown)]=="" and (countdown-arrayLength!=1)) :
+                if ((arrayLength-countdown)%3!=0 and intArray[countdown]==1 and self.bigDigits[(arrayLength-countdown)]=="" and (arrayLength-countdown!=1)) :
                     countdown=countdown+1
                     countdownArray.append(self.underTwenty[intArray[countdown]+10] + " " + self.bigDigits[(arrayLength-countdown)])
                     countdown=countdown+1
