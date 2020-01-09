@@ -41,7 +41,7 @@ class IntToString:
                 if ((arrayLength-countdown)%3!=0 and self.bigDigits[(arrayLength-countdown)]!="" and intArray[countdown!=1]) :
                     countdownArray.append(self.underTwenty[intArray[countdown]] + " " + self.bigDigits[arrayLength-countdown])
                 countdown = countdown + 1
-            print (" ".join(countdownArray))
+            return " ".join(countdownArray)
             
                     
 
