@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-import DamagesSwitch
+from Damages import Damages
 
 class challenge5(unittest.TestCase):
 
@@ -51,18 +51,8 @@ class challenge5(unittest.TestCase):
                 i=1
                 modelCounter+=1
                 modelnum=0
-        damageCounter=1
-        damageCount=DamagesSwitch.damageCount
-        while(damageCounter<=100):
-            damages=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr["+str(damageCounter)+"]/td[12]/span").text
-            DamagesSwitch.switch(damages)
-            damageCounter+=1
-        print("---DAMAGES---")
-        print("REAR END : "+str(damageCount[0]))
-        print("FRONT END : "+str(damageCount[1]))
-        print("MINOR DENT/SCRATCHES : "+str(damageCount[2]))
-        print("UNDERCARRIAGE : "+str(damageCount[3]))
-        print("MISC : "+str(damageCount[4]))
+        d=Damages(self.driver)
+        d.damage_finder(100)
                 
                 
 
