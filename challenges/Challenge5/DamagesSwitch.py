@@ -1,11 +1,5 @@
-import unittest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-
 damageCount=[0,0,0,0,0]
+
 def RearEnd():
     damageCount[0]+=1
 def FrontEnd():
