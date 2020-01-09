@@ -10,7 +10,7 @@ class challenge3(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-    def test_challenge1(self):
+    def challenge3(self):
         self.driver.get("https://www.copart.com")
         listCount=len(self.driver.find_elements(By.XPATH, "//*[@id='tabTrending']/div[1]/div[2]/div[1]//li"))
         divCount=len(self.driver.find_elements(By.XPATH, "//*[@id='tabTrending']/div[1]/div[2]/div"))
