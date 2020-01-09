@@ -6,7 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import DamagesSwitch
 
-class challenge2(unittest.TestCase):
+class challenge5(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome("chromedriver")
@@ -14,7 +14,7 @@ class challenge2(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-    def test_challenge1(self):
+    def test_challenge5(self):
         self.driver.get("https://www.copart.com")
         searchbar=self.driver.find_element(By.ID,"input-search")
         searchbar.click()
