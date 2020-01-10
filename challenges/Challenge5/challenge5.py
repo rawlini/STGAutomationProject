@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from Damages import Damages
+from Models import Models
 
 class challenge5(unittest.TestCase):
 
@@ -28,29 +29,8 @@ class challenge5(unittest.TestCase):
         WebDriverWait(self.driver, 10).until(
                 expected_conditions.visibility_of_element_located((By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr[100]"))
             )
-        rowCounter=1
-        modelArray=[]
-        while (rowCounter<=100):
-            model=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr["+str(rowCounter)+"]/td[6]/span").text
-            modelArray.append(model)
-            rowCounter+=1
-        uniqueModels=set(modelArray)
-        uniqueModelsLength=len(uniqueModels)
-        modelCounter=0
-        modelnum=0
-        i=1
-        print("---MODELS---")
-        while(uniqueModelsLength>modelCounter):
-            if(list(uniqueModels)[modelCounter]==modelArray[i]):
-                modelnum+=1
-                i+=1
-            else:
-                i+=1                               
-            if(i==100):
-                print(str(list(uniqueModels)[modelCounter]) + " : " + str(modelnum))
-                i=1
-                modelCounter+=1
-                modelnum=0
+        m=Models(self.driver)
+        m.unique_model_counter(100)
         d=Damages(self.driver)
         d.damage_finder(100)
                 
