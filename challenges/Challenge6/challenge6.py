@@ -15,18 +15,17 @@ class challenge6(unittest.TestCase):
         self.driver.close()
 
     def test_challenge6(self):
-        self.driver.get("https://www.copart.com")
-        searchbar=self.driver.find_element(By.ID,"input-search")
-        searchbar.click()
-        searchbar.send_keys("nissan skline")
-        searchbar.send_keys(Keys.RETURN)
-        WebDriverWait(self.driver, 10).until(
+        try:
+            self.driver.get("https://www.copart.com")
+            searchbar=self.driver.find_element(By.ID,"input-search")
+            searchbar.click()
+            searchbar.send_keys("nissan skyline")
+            searchbar.send_keys(Keys.RETURN)
+            WebDriverWait(self.driver, 10).until(
                 expected_conditions.visibility_of_element_located((By.XPATH,"//*[@id='serverSideDataTable']/tbody"))
             )
-        modelText=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr[1]/td[6]").text
-        firstSearchRow=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr[1]/td[2]")
-        try:
-            assertEquals(modelText,"SKYLINE")
+            modelText=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr[1]/td[6]").text
+            self.assertEqual(modelText,"SKYLINE")
         except:
             self.driver.save_screenshot("challenges/Screenshots/challenge6_"+str(datetime.now())+".png")
             raise AssertionError

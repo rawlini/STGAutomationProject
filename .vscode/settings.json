@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "challenges/venv/bin/python3.7"
+    "python.pythonPath": "challenges/venv/bin/python3.7",
+    "python.autoComplete.extraPaths": ["challenges"]
 }

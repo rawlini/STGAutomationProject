@@ -18,7 +18,7 @@ class challenge1(unittest.TestCase):
         self.driver.get("https://www.sling.com")
         pagetags = self.driver.find_elements(By.XPATH,"//*")
         WebDriverWait(self.driver,60).until(
-            expected_conditions.presence_of_all_elements_located((By.XPATH,"//*[@id='hp_deviceoffers']"))
+            expected_conditions.visibility_of_all_elements_located((By.XPATH,"//*[@id='hp_deviceoffers']"))
         )
         altTagCount=0
         for e in pagetags:
