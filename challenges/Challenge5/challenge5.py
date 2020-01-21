@@ -6,7 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from Damages import Damages
 from Models import Models
-from common import DriverInit
+from common.Copart.CopartSearchBar import CopartSearchBar
 
 class challenge5(unittest.TestCase):
 
@@ -18,13 +18,9 @@ class challenge5(unittest.TestCase):
 
     def test_challenge5(self):
         self.driver.get("https://www.copart.com")
-        searchbar=self.driver.find_element(By.ID,"input-search")
-        searchbar.click()
-        searchbar.send_keys("porsche")
-        searchbar.send_keys(Keys.RETURN)
-        WebDriverWait(self.driver, 10).until(
-                expected_conditions.visibility_of_element_located((By.XPATH,"//*[@id='serverSideDataTable']/tbody"))
-            )
+        s=CopartSearchBar(self.driver)
+        model="porsche"
+        s.search_input(model)
         entryNumber100=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable_length']//option[3]")
         entryNumber100.click()
         WebDriverWait(self.driver, 10).until(
