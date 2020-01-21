@@ -5,6 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from datetime import datetime
+from common.Copart.CopartSearchBar import CopartSearchBar
+from common.Copart.CopartSearchFilter import CopartSearchFilter
+from common.Screenshot import Screenshot
 
 class challenge6(unittest.TestCase):
 
@@ -17,17 +20,17 @@ class challenge6(unittest.TestCase):
     def test_challenge6(self):
         try:
             self.driver.get("https://www.copart.com")
-            searchbar=self.driver.find_element(By.ID,"input-search")
-            searchbar.click()
-            searchbar.send_keys("nissan skyline")
-            searchbar.send_keys(Keys.RETURN)
-            WebDriverWait(self.driver, 10).until(
-                expected_conditions.visibility_of_element_located((By.XPATH,"//*[@id='serverSideDataTable']/tbody"))
-            )
-            modelText=self.driver.find_element(By.XPATH,"//*[@id='serverSideDataTable']/tbody/tr[1]/td[6]").text
-            self.assertEqual(modelText,"SKYLINE")
+            s=CopartSearchBar(self.driver)
+            make="Nissan"
+            model="Skyline"
+            s.search_input(make)
+            f=CopartSearchFilter(self.driver)
+            f.modelFilter.click()
+            f.firstModelText.text.upper()
+            self.assertEqual(firstModelText,model.upper())
         except:
-            self.driver.save_screenshot("challenges/Screenshots/challenge6_"+str(datetime.now())+".png")
+            sc=Screenshot(self.driver)
+            sc.screencapture(challenge6)
             raise AssertionError
 
 
